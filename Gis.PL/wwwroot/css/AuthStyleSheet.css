@@ -1,0 +1,160 @@
+﻿/* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.25s cubic-bezier(0.37, 0, 0.45, 0.99);
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: transparent;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* CONTENT WRAPPER */
+.content-wrapper {
+    position: relative;
+    z-index: 1; /* Below login-container but above GPS background */
+    width: 100%;
+    height: 100vh;
+}
+
+/* LOGIN CONTAINER */
+.login-container {
+    position: relative;
+    z-index: 2 !important; /* Ensure it’s above GPS background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 1rem;
+}
+
+    /* LOGIN FORM BOX */
+    .login-container .login-form {
+        background-color: rgba(255, 255, 255, 0.1) !important; /* Slightly transparent for GPS visibility */
+        backdrop-filter: blur(10px) !important; /* Glassmorphism effect */
+        -webkit-backdrop-filter: blur(10px) !important; /* Support for Safari */
+        padding: 2rem !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.3) !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        text-align: center !important;
+    }
+
+        /* TITLE */
+        .login-container .login-form h1 {
+            color: #fff !important;
+            margin-bottom: 1rem !important;
+            font-size: 1.5rem !important;
+            font-weight: 600 !important;
+        }
+
+    /* SOCIAL ICONS */
+    .login-container .social-icons {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+        .login-container .social-icons .icon {
+            color: #fff !important;
+            font-size: 1.5rem !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-radius: 50% !important;
+            padding: 0.5rem !important;
+            transition: background 0.3s ease !important;
+        }
+
+            .login-container .social-icons .icon:hover {
+                background: rgba(255, 255, 255, 0.3) !important;
+            }
+
+    /* OR TEXT */
+    .login-container .or-text {
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* FORM INPUTS */
+    .login-container input.text {
+        width: 100% !important;
+        padding: 0.75rem !important;
+        margin-bottom: 1rem !important;
+        border: none !important;
+        border-radius: 0.5rem !important;
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        color: #fff !important;
+    }
+
+        .login-container input.text::placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+    /* VALIDATION */
+    .login-container .text-danger {
+        font-size: 0.85rem !important;
+        color: #ffbcbc !important;
+        margin-bottom: 0.5rem !important;
+        text-align: left !important;
+    }
+
+    /* CHECKBOX */
+    .login-container label.anim {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        font-size: 0.95rem !important;
+        color: #fff !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* SUBMIT BUTTON */
+    .login-container button[type="submit"] {
+        width: 100% !important;
+        padding: 0.75rem !important;
+        background-color: #6c38de !important;
+        color: #fff !important;
+        font-weight: bold !important;
+        border: none !important;
+        border-radius: 2rem !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s ease !important;
+    }
+
+        .login-container button[type="submit"]:hover {
+            background-color: #4e2db7 !important;
+        }
+
+    /* LINKS */
+    .login-container .login-form a {
+        display: inline-block !important;
+        margin-top: 1rem !important;
+        font-size: 0.9rem !important;
+        color: #f0eaff !important;
+        text-decoration: underline !important;
+    }
+
+        .login-container .login-form a:hover {
+            color: #d1cfff !important;
+        }
+
+    /* FORM FOOTER TEXT */
+    .login-container .login-form p {
+        margin-top: 1rem !important;
+        font-size: 0.9rem !important;
+    }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 480px) {
+    .login-container .login-form {
+        padding: 1.5rem !important;
+        max-width: 90% !important;
+    }
+}

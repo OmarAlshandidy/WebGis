@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "CheckYourInbox";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<div class="login-container">
+    <div class="login-form" id="loginForm">
+        <div asp-validation-summary="All"></div>
+
+        <p>
+            Reset password link has been send to your email, please check your inbox
+        </p>
+    </div>
+    <div>
+        <a href="https://mail.google.com/" target="_blank">Your inbox</a>
+    </div>
+       
+    </div>
+
+@section ValidationSection {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

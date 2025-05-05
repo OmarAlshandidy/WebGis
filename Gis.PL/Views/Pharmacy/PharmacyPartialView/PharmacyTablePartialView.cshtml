@@ -1,0 +1,21 @@
+﻿<div id="tableDiv" style="display: none;">
+    
+        <tbody id="PharmacysTableBody">
+            @foreach (var Pharmacy in Model)
+            {
+                <tr data-Pharmacy-id="@Pharmacy.Objectid">
+                    <td class="name-cell">@Pharmacy.Name</td>
+                    <td>@Pharmacy.Address</td>
+                    <td>@Pharmacy.Lat</td>
+                    <td>@Pharmacy.Lon</td>
+                    <td class="distance-cell">Calculating location...</td>
+                    <td>
+                        <span class="view-icon" data-Pharmacy-id="@Pharmacy.Objectid" onclick="viewPharmacyOnMap(@Pharmacy.Objectid)">👁️</span>
+                    </td>
+                           <partial name="ButtonPartialView" model="@Pharmacy.Objectid.ToString()" />
+
+                </tr>
+            }
+        </tbody>
+
+</div>

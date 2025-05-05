@@ -1,0 +1,21 @@
+﻿<div id="tableDiv" style="display: none;">
+    
+        <tbody id="MarketsTableBody">
+            @foreach (var Market in Model)
+            {
+                <tr data-Market-id="@Market.Objectid">
+                    <td class="name-cell">@Market.Name</td>
+                    <td>@Market.Address</td>
+                    <td>@Market.Lat</td>
+                    <td>@Market.Lon</td>
+                    <td class="distance-cell">Calculating location...</td>
+                    <td>
+                        <span class="view-icon" data-Market-id="@Market.Objectid" onclick="viewMarketOnMap(@Market.Objectid)">👁️</span>
+                    </td>
+                           <partial name="ButtonPartialView" model="@Market.Objectid.ToString()" />
+
+                </tr>
+            }
+        </tbody>
+
+</div>

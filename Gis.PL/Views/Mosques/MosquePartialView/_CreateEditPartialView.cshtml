@@ -1,0 +1,76 @@
+﻿@model MosqueDto
+
+<div class="container my-5">
+
+
+    <style>
+        body {
+            background-image: url('@Url.Content("~/files/background/background.png")');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+        }
+    </style>
+
+        <div class="card-header bg-teal-gradient text-white border-0 rounded-top-4 p-4">
+            <h4 class="mb-0 d-flex align-items-center">
+                <span class="material-icons me-2"></span>
+                @ViewData["Title"]  Mosque
+            </h4>
+        </div>
+        <div class="card-body p-4 bg-white bg-opacity-90">
+            <form asp-action="Save" method="post">
+                <div class="form-floating mb-4">
+                    <input asp-for="Name" class="form-control form-control-lg border-0 shadow-sm" id="nameInput" placeholder="Mosque Name" />
+                    <label for="nameInput" class="text-muted">Mosque Name</label>
+                <span asp-validation-for="Name " class="text-danger"></span>
+            </div>
+
+                <div class="form-floating mb-4">
+                    <input asp-for="Address" class="form-control form-control-lg border-0 shadow-sm" id="addressInput" placeholder="Address" />
+                    <label for="addressInput" class="text-muted">Address</label>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="form-floating">
+                            <input asp-for="Lat" class="form-control form-control-lg border-0 shadow-sm" id="latInput" placeholder="Latitude" />
+                            <label for="latInput" class="text-muted">Latitude</label>
+                        <span asp-validation-for="Lat" class="text-danger"></span>
+                    </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="form-floating">
+                            <input asp-for="Lon" class="form-control form-control-lg border-0 shadow-sm" id="lonInput" placeholder="Longitude" />
+                            <label for="lonInput" class="text-muted">Longitude</label>
+                        <span asp-validation-for="Lon" class="text-danger"></span>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <button type="submit" value="Save" class="btn btn-teal btn-lg px-4 py-2 shadow-sm hover-scale">
+                            <span class="material-icons me-2">save</span>
+                            Save
+                        </button>
+                        <a asp-action="Index" class="btn btn-outline-teal btn-lg px-4 py-2 shadow-sm hover-scale">
+                            <span class="material-icons me-2">cancel</span>
+                            Cancel
+                        </a>
+                    </div>
+                </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+
+<link href="~/css/styleform.css" rel="stylesheet" />
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+}

@@ -1,0 +1,70 @@
+﻿ @model SignUpDto
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<link rel="stylesheet" href="~/css/style.css" />
+
+<div class="login-container">
+    <div class="signup-form" id="signupForm">
+        <div asp-validation-summary="All"></div>
+
+        <h1>Create At Account</h1>
+        <div class="social-icons">
+            <a asp-action="GoogleLogin" class="icon"><i class='bx bxl-google-plus'></i></a>
+            <a asp-action="FacebookLogin" class="icon"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="icon"><i class='bx bxl-linkedin'></i></a>
+        </div>
+
+        <div class="form-message-container">
+            <span>Or use your email for registration</span>
+        </div>
+
+        <form asp-action="SignUp" method="post">
+            <input class="text" asp-for="UserName" placeholder="Username" required="" />
+            <div class="text-danger">
+            @Html.ValidationMessageFor(model => model.UserName)
+            </div>
+            <input class="text" asp-for="FirstName" placeholder="First Name" required="" />
+            <div class="text-danger">
+            @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+            <input class="text" asp-for="LastName" placeholder="Last Name" required="" />
+            <div class="text-danger">
+            @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+            <input class ="text" asp-for="Email" placeholder="Email" required="" />
+            <div class="text-danger">
+            @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <input class="text" asp-for="Password" type="password" placeholder="Password" required="" />
+            <div class="text-danger">
+                @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            <input class="text w3lpass" asp-for="ConformPassword" type="password" placeholder="Confirm Password" required="" />
+            <div class="text-danger">
+            @Html.ValidationMessageFor(model => model.ConformPassword)
+            </div>
+            <div class="wthree-text" style="margin: 10px 0;">
+                <label class="anim">
+                    <!-- Checkbox input -->
+                    <input asp-for="IsAgreed" class="checkbox" required />
+                    <span>I Agree To The Terms & Conditions</span>
+                    <div class="text-danger">
+                    @Html.ValidationMessageFor(model => model.IsAgreed)
+                </div>
+                </label>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p>Already have an account? <a asp-action="SignIn">Sign In</a></p>
+    </div>
+</div>
+@section ValidationSection{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

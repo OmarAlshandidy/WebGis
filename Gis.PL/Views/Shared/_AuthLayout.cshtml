@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Custom Styles -->
+    <link href="~/css/gps.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/AuthStyleSheet.css" />
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Animated GPS Background -->
+    <header class="hero hero--map gps-bg">
+        <div class="gps-bg__guts">
+            <div class="gps-bg__bg"></div>
+            <div class="gps-bg__route"></div>
+            <div class="gps-bg__marker"></div>
+        </div>
+        <div class="gps-bg__fade"></div>
+
+        <h1 class="hero__title">Animated GPS Map Background</h1>
+    </header>
+
+    <!-- Foreground Content -->
+    <div class="content-wrapper">
+        @RenderBody()
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/Script.js"></script>
+    @await RenderSectionAsync("ValidationSection", required: false)
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿.bg-teal-gradient {
+    background: linear-gradient(45deg, #26A69A, #4DD0E1);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(38, 166, 154, 0.2) !important;
+    border-color: #26A69A !important;
+}
+
+.btn-teal {
+    background-color: #26A69A;
+    color: white;
+    border: none;
+}
+
+    .btn-teal:hover {
+        background-color: #2E7D32;
+        color: white;
+    }
+
+.btn-outline-teal {
+    color: #26A69A;
+    border-color: #26A69A;
+    background-color: transparent;
+}
+
+    .btn-outline-teal:hover {
+        color: white;
+        background-color: #26A69A;
+    }
+
+.hover-scale {
+    transition: transform 0.2s ease-in-out;
+}
+
+    .hover-scale:hover {
+        transform: scale(1.05);
+    }
+
+.material-icons {
+    vertical-align: middle;
+}
+
+.card {
+    border-radius: 16px !important;
+    overflow: hidden;
+    background-color: #E0F2F1; /* Fallback color */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"%3E%3Cpath d="M0,0 L100,0 L100,100 L0,100 Z" stroke="%2326A69A" stroke-width="0.5" opacity="0.3"/%3E%3Cpath d="M10,10 L90,10 M10,20 L90,20 M10,30 L90,30 M10,40 L90,40 M10,50 L90,50 M10,60 L90,60 M10,70 L90,70 M10,80 L90,80 M10,90 L90,90 M10,10 L10,90 M20,10 L20,90 M30,10 L30,90 M40,10 L40,90 M50,10 L50,90 M60,10 L60,90 M70,10 L70,90 M80,10 L80,90 M90,10 L90,90" stroke="%2326A69A" stroke-width="0.5" opacity="0.3"/%3E%3C/svg%3E');
+    background-size: 50px 50px;
+}
+
+.bg-opacity-90 {
+    background-color: rgba(255, 255, 255, 0.9);
+}

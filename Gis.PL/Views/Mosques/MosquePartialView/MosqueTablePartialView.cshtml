@@ -1,0 +1,21 @@
+﻿<div id="tableDiv" style="display: none;">
+    
+        <tbody id="mosquesTableBody">
+            @foreach (var mosque in Model)
+            {
+                <tr data-mosque-id="@mosque.Objectid">
+                    <td class="name-cell">@mosque.Name</td>
+                    <td>@mosque.Address</td>
+                    <td>@mosque.Lat</td>
+                    <td>@mosque.Lon</td>
+                    <td class="distance-cell">Calculating location...</td>
+                    <td>
+                        <span class="view-icon" data-mosque-id="@mosque.Objectid" onclick="viewMosqueOnMap(@mosque.Objectid)">👁️</span>
+                    </td>
+                           <partial name="ButtonPartialView" model="@mosque.Objectid.ToString()" />
+
+                </tr>
+            }
+        </tbody>
+
+</div>

@@ -1,0 +1,196 @@
+﻿
+body {
+
+    direction: ltr;
+    text-align: left;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #e6f0ea;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.view-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    direction: ltr; /* محاذاة الأزرار لليسار */
+    justify-content: flex-start; /* تأكيد المحاذاة لليسار */
+    margin-right: auto; /* إزالة أي هامش يدفعها لليمين */
+}
+
+    .view-toggle button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-weight: bold;
+    }
+
+    .view-toggle .btn-primary {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .view-toggle .btn-secondary {
+        background-color: #f1f1f1;
+        color: #2c3e50;
+    }
+
+    .view-toggle .btn-primary:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+
+    .view-toggle .btn-secondary:hover {
+        background-color: #e0e0e0;
+        transform: scale(1.05);
+    }
+
+#map {
+    width: 150%; /* Full width */
+    height: calc(90vh - 100px); /* Slightly shorter height */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto 0 0px; /* Increased left shift to -50px */
+    padding: 20px;
+}
+
+#map:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.leaflet-popup-content {
+    font-size: 14px;
+    color: #2c3e50;
+    text-align: center;
+    padding: 15px;
+}
+
+.leaflet-popup-tip {
+    background-color: #ffffff;
+}
+
+#tableDiv {
+    display: none;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+    .table th {
+        direction: ltr;
+        text-align: left;
+        background-color: #28a745;
+        color: white;
+        padding: 12px;
+        border-bottom: 2px solid #ffffff;
+        font-weight: 600;
+    }
+
+    .table td {
+        direction: rtl;
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        color: #2c3e50;
+    }
+
+    .table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.toast-container {
+    z-index: 1050;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.toast.bg-success .toast-header {
+    background-color: #28a745;
+    color: white;
+    border-radius: 10px;
+}
+
+.toast.bg-danger .toast-header {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 10px;
+}
+
+.go-to-mosque-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    .go-to-mosque-btn:hover {
+        background-color: #218838;
+        transform: scale(1.1);
+    }
+
+.leaflet-routing-container {
+    display: none !important;
+}
+
+.sortable {
+    cursor: pointer;
+    position: relative;
+}
+
+    .sortable::after {
+        content: '↕';
+        margin-left: 5px;
+        font-size: 16px;
+        color: #ffffff;
+    }
+
+.view-icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: #007bff;
+    transition: transform 0.2s;
+}
+
+    .view-icon:hover {
+        color: #0056b3;
+        transform: scale(1.2);
+    }
+
