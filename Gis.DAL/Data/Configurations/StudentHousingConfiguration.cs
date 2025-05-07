@@ -10,15 +10,15 @@ using System.Collections.Generic;
 
 namespace Gis.DAL.Data.Configurations
 {
-    public partial class MarketConfiguration : IEntityTypeConfiguration<Market>
+    public partial class StudentHousingConfiguration : IEntityTypeConfiguration<StudentHousing>
     {
-        public void Configure(EntityTypeBuilder<Market> entity)
+        public void Configure(EntityTypeBuilder<StudentHousing> entity)
         {
-            entity.HasKey(e => e.Objectid).HasName("PK__MARKETS__F4B70D851C07A19D");
+            entity.HasKey(e => e.Objectid).HasName("PK__STUDENT___F4B70D85049E434C");
 
             OnConfigurePartial(entity);
         }
 
-        partial void OnConfigurePartial(EntityTypeBuilder<Market> entity);
+        partial void OnConfigurePartial(EntityTypeBuilder<StudentHousing> entity);
     }
 }

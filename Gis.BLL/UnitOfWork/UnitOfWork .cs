@@ -14,7 +14,8 @@ namespace Gis.BLL.UnitOfWork
         public IMosqueRepository MosqueRepository {  get;}
         public IRestaurantRepository RestaurantRepository { get; }
         public IPharmacyRepository PharmacyRepository { get; }
-        public IMarketRepositorey MarketRepository { get; }
+        public IMarketRepository MarketRepository { get; }
+        public IStudentHousingRepository StudentHousingRepository { get; }
 
 
         private readonly GisDbContext _context;
@@ -28,6 +29,7 @@ namespace Gis.BLL.UnitOfWork
             RestaurantRepository = new RestaurantRepository(_context);
             PharmacyRepository = new PharmacyRepository(_context);
             MarketRepository = new MarketRepository(_context);
+            StudentHousingRepository = new StudentHousingRepository(_context);
             //MarketRepositorey
 
         }

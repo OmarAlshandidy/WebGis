@@ -1,0 +1,104 @@
+@model IEnumerable<UserToReturnDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form asp-action="Index" method="get" class="mt-4 row justify-content-center align-items-center">
+    <div class="row col-8 offest-1">
+        <div class="col-8">
+            <input placeholder="Search By Name " id="SearchInput" name="SearchInput" class="form-control" />
+        </div>
+
+        <div class="col-4">
+            <input type="submit" class="btn btn-success" value="Search" />
+        </div>
+
+    </div>
+</form>
+<br />
+
+<h1>All User </h1>
+<br />
+<br />
+
+@if (!string.IsNullOrEmpty(TempData["Message"] as string))
+{
+    <div class="mt-4 alert  alert-info">
+        <p>@TempData["Message"]</p>
+    </div>
+}
+
+<br/>
+<br />
+@if(Model.Count() > 0 )
+{
+    <table class="table tabletable-hover table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th> Role  </th>
+                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.Id</td>
+                    <td>@item.UserName</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+                    <td>
+                        @foreach(var role in item.Roles)
+                        {
+                            <span>@role</span>
+                        }
+                    </td>
+                    
+
+                    <partial name="ButtonPartialView" model="@item.Id.ToString()"/>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}else{
+    <div class="m-4 alert alert-info">
+        <h4> 
+            There Are No Users :(
+        </h4>
+    </div>
+}
+
+
+<script>
+    $(document).ready(function () {
+        const searchBar = $('#SearchInput');
+        const table = $('table');
+
+        searchBar.on('keyup', function (event) {
+            var searchValue = searchBar.val();
+
+            $.ajax({
+                url: '/Employee/Search',
+                type: 'Get',
+                data: { Search: searchValue },
+                success: function (result) {
+                    table.html(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>

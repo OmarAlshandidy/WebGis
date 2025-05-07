@@ -15,9 +15,6 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "ExcludedColumns": [
-            "OBJECTID_1"
-         ],
          "Name": "[dbo].[MARKETS]",
          "ObjectType": 0
       },
@@ -26,17 +23,15 @@
          "ObjectType": 0
       },
       {
-         "ExcludedColumns": [
-            "OBJECTID_1"
-         ],
          "Name": "[dbo].[PHARMACIES]",
          "ObjectType": 0
       },
       {
-         "ExcludedColumns": [
-            "OBJECTID_1"
-         ],
          "Name": "[dbo].[RESTAURANT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[STUDENT_HOUSING]",
          "ObjectType": 0
       }
    ],

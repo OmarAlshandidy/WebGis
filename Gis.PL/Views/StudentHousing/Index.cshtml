@@ -1,0 +1,379 @@
+﻿@model IEnumerable<StudentHousing>
+
+@{
+    ViewData["Title"] = "StudentHousings Map and Table";
+}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link href="~/css/stylemap.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+<form asp-action="Index" method="get" class="mt-4 row justify-content-center align-items-center">
+    <div class="row col-8 offset-1">
+        <div class="col-8">
+            <input placeholder="Search By Name " id="SearchInput" name="SearchInput" class="form-control" />
+        </div>
+        <div class="col-4">
+            <input type="submit" class="btn btn-success" value="Search" />
+        </div>
+    </div>
+</form>
+<br />
+@if (!string.IsNullOrEmpty(TempData["Message"] as string))
+{
+    <div class="mt-4 alert alert-info">
+        <p>@TempData["Message"]</p>
+    </div>
+}
+<a asp-action="Create" asp-controller="StudentHousing" class="btn btn-primary"> Create StudentHousing </a>
+
+<br />
+
+<div class="container">
+    <h1>Map</h1>
+    <div class="view-toggle">
+        <button onclick="showMap()" class="btn btn-primary" aria-label="Show Map">Map</button>
+        <button onclick="showTable()" class="btn btn-secondary" aria-label="Show Table">Table</button>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="tableDiv" style="display: none;">
+        <table class="table table-bordered" role="grid" aria-label="List of StudentHousings">
+            <thead>
+                <tr>
+                    <th class="sortable" onclick="sortTableByName()">StudentHousing Name</th>
+                    <th>Address</th>
+                    <th>Description</th>
+                    <th class="sortable" onclick="sortTableByPrice()">Price</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th class="sortable" onclick="sortTableByDistance()">Distance (km)</th>
+                    <th>View</th>
+                    <th>Details</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="StudentHousingsTableBody">
+                @foreach (var StudentHousing in Model)
+                {
+                    <tr data-StudentHousing-id="@StudentHousing.Objectid">
+                        <td class="name-cell">@StudentHousing.Name</td>
+                        <td>@StudentHousing.Address</td>
+                        <td>@StudentHousing.Descript</td>
+                        <td class="price-cell">@StudentHousing.PriceOfun</td>
+                        <td>@StudentHousing.Lat</td>
+                        <td>@StudentHousing.Lon</td>
+                        <td class="distance-cell">Calculating location...</td>
+                        <td>
+                            <span class="view-icon" data-StudentHousing-id="@StudentHousing.Objectid" onclick="viewStudentHousingOnMap(@StudentHousing.Objectid)">👁️</span>
+                        </td>
+                        <partial name="ButtonPartialView" model="@StudentHousing.Objectid.ToString()" />
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="toast-container">
+    <div id="messageToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Notification</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/toast.js"></script>
+
+    <script>
+        var map = L.map('map').setView([31.2156, 29.9553], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, © <a href="https://openstreet.fr">OpenStreetMap France</a>',
+            subdomains: 'abc',
+            maxZoom: 20,
+            minZoom: 2
+        }).addTo(map);
+        var StudentHousingIcon = L.icon({
+            iconUrl: '@Url.Content("~/files/Icon/StudentHousing.png")',
+            iconSize: [60, 80],
+            iconAnchor: [30, 80],
+            popupAnchor: [0, -80]
+        });
+        var userIcon = L.icon({
+            iconUrl: 'https://cdn-icons-png.flaticon.com/512/64/64113.png',
+            iconSize: [30, 30]
+        });
+        var userMarker = null;
+        var userLatLng = null;
+        var routingControl = null;
+        var nearestStudentHousing = null;
+        var sortDirectionId = 1;
+        var sortDirectionName = 1;
+        var sortDirectionDistance = 1;
+        var sortDirectionPrice = 1; // متغير جديد لترتيب السعر
+        var StudentHousingMarkers = {};
+        var StudentHousings = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+        Model.Select(m => new { m.Objectid, m.Name, m.Address, m.Lat, m.Lon, m.PriceOfun }),
+        new System.Text.Json.JsonSerializerOptions { Encoder = System.Text.Encodings.Web.JavaScriptEncoder.Default }
+    ));
+
+        function findNearestStudentHousing(userLatLng) {
+            if (!userLatLng || StudentHousings.length === 0) return null;
+            var nearest = null;
+            var minDistance = Infinity;
+            StudentHousings.forEach(StudentHousing => {
+                if (StudentHousing.Lat != null && StudentHousing.Lon != null && !isNaN(StudentHousing.Lat) && !isNaN(StudentHousing.Lon)) {
+                    var StudentHousingLatLng = L.latLng(StudentHousing.Lat, StudentHousing.Lon);
+                    var distance = userLatLng.distanceTo(StudentHousingLatLng);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        nearest = { StudentHousing: StudentHousing, distance: distance };
+                    }
+                }
+            });
+            return nearest;
+        }
+
+        function updateDistancesInTable() {
+            if (!userLatLng) return;
+            var tableBody = document.getElementById('StudentHousingsTableBody');
+            var rows = tableBody.getElementsByTagName('tr');
+            StudentHousings.forEach(StudentHousing => {
+                if (StudentHousing.Lat != null && StudentHousing.Lon != null && !isNaN(StudentHousing.Lat) && !isNaN(StudentHousing.Lon)) {
+                    var StudentHousingLatLng = L.latLng(StudentHousing.Lat, StudentHousing.Lon);
+                    var distance = userLatLng.distanceTo(StudentHousingLatLng);
+                    var distanceKm = (distance / 1000).toFixed(2);
+                    for (var i = 0; i < rows.length; i++) {
+                        var row = rows[i];
+                        if (row.getAttribute('data-StudentHousing-id') == StudentHousing.Objectid) {
+                            var distanceCell = row.querySelector('.distance-cell');
+                            distanceCell.textContent = distanceKm;
+                            distanceCell.setAttribute('data-distance', distanceKm);
+                            break;
+                        }
+                    }
+                }
+            });
+            sortTableByDistance();
+        }
+
+        function sortTableByName() {
+            var tableBody = document.getElementById('StudentHousingsTableBody');
+            var rows = Array.from(tableBody.getElementsByTagName('tr'));
+            rows.sort((a, b) => {
+                var nameA = a.querySelector('.name-cell').textContent.trim().toLowerCase();
+                var nameB = b.querySelector('.name-cell').textContent.trim().toLowerCase();
+                return nameA.localeCompare(nameB) * sortDirectionName;
+            });
+            sortDirectionName *= -1;
+            tableBody.innerHTML = '';
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+
+        function sortTableByPrice() {
+            var tableBody = document.getElementById('StudentHousingsTableBody');
+            var rows = Array.from(tableBody.getElementsByTagName('tr'));
+            rows.sort((a, b) => {
+                var priceA = parseFloat(a.querySelector('.price-cell').textContent) || 0;
+                var priceB = parseFloat(b.querySelector('.price-cell').textContent) || 0;
+                return (priceA - priceB) * sortDirectionPrice;
+            });
+            sortDirectionPrice *= -1;
+            tableBody.innerHTML = '';
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+
+        function sortTableByDistance() {
+            var tableBody = document.getElementById('StudentHousingsTableBody');
+            var rows = Array.from(tableBody.getElementsByTagName('tr'));
+            rows.sort((a, b) => {
+                var distanceA = parseFloat(a.querySelector('.distance-cell').getAttribute('data-distance')) || 0;
+                var distanceB = parseFloat(b.querySelector('.distance-cell').getAttribute('data-distance')) || 0;
+                return (distanceA - distanceB) * sortDirectionDistance;
+            });
+            sortDirectionDistance *= -1;
+            tableBody.innerHTML = '';
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+
+        function goToNearestStudentHousing() {
+            if (!userLatLng) {
+                showMessage("User location not determined!", true);
+                return;
+            }
+            if (!nearestStudentHousing || !nearestStudentHousing.StudentHousing) {
+                showMessage("No nearby StudentHousing found!", true);
+                return;
+            }
+            var latlng = L.latLng(nearestStudentHousing.StudentHousing.Lat, nearestStudentHousing.StudentHousing.Lon);
+            if (!latlng || isNaN(latlng.lat) || isNaN(latlng.lng)) {
+                showMessage("Invalid coordinates for the nearest StudentHousing!", true);
+                return;
+            }
+            if (routingControl) {
+                map.removeControl(routingControl);
+                routingControl = null;
+            }
+            try {
+                routingControl = L.Routing.control({
+                    waypoints: [userLatLng, latlng],
+                    routeWhileDragging: true,
+                    lineOptions: { styles: [{ color: '#007bff', weight: 4, opacity: 0.7 }] },
+                    createMarker: function (i, waypoint) {
+                        return L.marker(waypoint.latLng, { icon: i === 0 ? userIcon : StudentHousingIcon });
+                    },
+                    show: false,
+                    showAlternatives: false
+                }).addTo(map);
+                showMessage("Routing to: " + (nearestStudentHousing.StudentHousing.Name || "StudentHousing"));
+            } catch (error) {
+                showMessage("Error creating route: " + error.message, true);
+            }
+        }
+
+        function viewStudentHousingOnMap(StudentHousingId) {
+            var StudentHousing = StudentHousings.find(m => m.Objectid == StudentHousingId);
+            if (!StudentHousing || StudentHousing.Lat == null || StudentHousing.Lon == null || isNaN(StudentHousing.Lat) || isNaN(StudentHousing.Lon)) {
+                showMessage("Cannot find coordinates for this StudentHousing!", true);
+                return;
+            }
+            showMap();
+            var latlng = L.latLng(StudentHousing.Lat, StudentHousing.Lon);
+            map.setView(latlng, 15);
+            var marker = StudentHousingMarkers[StudentHousingId];
+            if (marker) {
+                marker.openPopup();
+            }
+        }
+
+        function locateUser() {
+            if (!navigator.geolocation) {
+                showMessage("Browser does not support geolocation", true);
+                return;
+            }
+            navigator.geolocation.getCurrentPosition(function (position) {
+                userLatLng = L.latLng(position.coords.latitude, position.coords.longitude);
+                nearestStudentHousing = findNearestStudentHousing(userLatLng);
+                var popupContent = "Your Current Location";
+                if (nearestStudentHousing && nearestStudentHousing.StudentHousing) {
+                    var distanceKm = (nearestStudentHousing.distance / 1000).toFixed(2);
+                    popupContent += `<br>Nearest StudentHousing: ${nearestStudentHousing.StudentHousing.Name || "StudentHousing"} (${distanceKm} km)`;
+                    popupContent += `<br><button id="goToNearestBtn" class="btn btn-success mt-2" onclick="goToNearestStudentHousing()">Go to Nearest StudentHousing</button>`;
+                } else {
+                    popupContent += "<br>No nearby StudentHousings found";
+                }
+                if (userMarker) {
+                    map.removeLayer(userMarker);
+                }
+                userMarker = L.marker(userLatLng, { icon: userIcon })
+                    .addTo(map)
+                    .bindPopup(popupContent)
+                    .openPopup();
+                map.panTo(userLatLng);
+                updateDistancesInTable();
+                userMarker.on('popupopen', function () {
+                    setTimeout(function () {
+                        const goToBtn = document.getElementById('goToNearestBtn');
+                        if (goToBtn) {
+                            goToBtn.addEventListener('click', goToNearestStudentHousing);
+                        } else {
+                            console.error('The "Go to Nearest StudentHousing" button is not present inside the popup..');
+                            showMessage("The button was not found!", true);
+                        }
+                    }, 100);
+                });
+            }, function (error) {
+                showMessage("Error determining location: " + error.message, true);
+            });
+        }
+
+        StudentHousings.forEach(StudentHousing => {
+            if (StudentHousing.Lat != null && StudentHousing.Lon != null && !isNaN(StudentHousing.Lat) && !isNaN(StudentHousing.Lon)) {
+                var latlng = L.latLng(StudentHousing.Lat, StudentHousing.Lon);
+                var marker = L.marker(latlng, { icon: StudentHousingIcon })
+                    .addTo(map)
+                    .bindPopup((StudentHousing.Name || "StudentHousing") + "<br>" + (StudentHousing.Address));
+                StudentHousingMarkers[StudentHousing.Objectid] = marker;
+                marker.on('click', function () {
+                    if (!userLatLng) {
+                        showMessage("Please determine your location first!", true);
+                        return;
+                    }
+                    if (routingControl) {
+                        map.removeControl(routingControl);
+                        routingControl = null;
+                    }
+                    routingControl = L.Routing.control({
+                        waypoints: [userLatLng, latlng],
+                        routeWhileDragging: true,
+                        lineOptions: { styles: [{ color: '#007bff', weight: 4, opacity: 0.7 }] },
+                        createMarker: function (i, waypoint) {
+                            return L.marker(waypoint.latLng, { icon: i === 0 ? userIcon : StudentHousingIcon });
+                        },
+                        show: false,
+                        showAlternatives: false
+                    }).addTo(map);
+                    showMessage("Selected StudentHousing: " + (StudentHousing.Name || "StudentHousing"));
+                });
+            }
+        });
+
+        locateUser();
+
+        function showMap() {
+            document.getElementById('map').style.display = 'block';
+            document.getElementById('tableDiv').style.display = 'none';
+            map.invalidateSize();
+        }
+
+        function showTable() {
+            document.getElementById('map').style.display = 'none';
+            document.getElementById('tableDiv').style.display = 'block';
+            updateDistancesInTable();
+        }
+
+        window.addEventListener('resize', function () {
+            if (document.getElementById('map').style.display !== 'none') {
+                map.invalidateSize();
+            }
+        });
+
+        $(document).ready(function () {
+            const searchBar = $('#SearchInput');
+            searchBar.on('keyup', function (event) {
+                var searchValue = searchBar.val();
+                $.ajax({
+                    url: '/StudentHousing/Search',
+                    type: 'GET',
+                    data: { SearchInput: searchValue },
+                    success: function (result) {
+                        $('#StudentHousingsTableBody').html(result);
+                        rebindTableEvents();
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("Error occurred: " + error);
+                    }
+                });
+            });
+
+            function rebindTableEvents() {
+                const viewIcons = document.querySelectorAll('.view-icon');
+                viewIcons.forEach(icon => {
+                    icon.addEventListener('click', function () {
+                        const StudentHousingId = this.getAttribute('data-StudentHousing-id');
+                        viewStudentHousingOnMap(StudentHousingId);
+                    });
+                });
+            }
+
+            rebindTableEvents();
+        });
+    </script>
+}

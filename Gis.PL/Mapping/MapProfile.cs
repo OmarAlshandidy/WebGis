@@ -13,6 +13,8 @@ namespace Gis.PL.Mapping
             CreateMap<RestaurantDto, Restaurant>().ReverseMap();
             CreateMap<PharmacyDto, Pharmacy>().ReverseMap();
             CreateMap<MarketDto, Market>().ReverseMap();
+            CreateMap<StudentHousingDto, StudentHousing>().ReverseMap();
+
 
 
 

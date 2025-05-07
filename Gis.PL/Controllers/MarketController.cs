@@ -2,6 +2,7 @@
 using Gis.BLL.UnitOfWork;
 using Gis.DAL.Models;
 using Gis.PL.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gis.PL.Controllers
@@ -48,6 +49,8 @@ namespace Gis.PL.Controllers
             return PartialView("MarketPartialView/MarketTablePartialView", Markets);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -69,6 +72,7 @@ namespace Gis.PL.Controllers
             return View(model);
         }
         [HttpGet]
+
         public async Task<IActionResult> Details(int? id, string ViewName = "Details")
         {
             if (id is null) return BadRequest("Invaliad Id");
@@ -78,6 +82,8 @@ namespace Gis.PL.Controllers
             return View(ViewName, MarketDto);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
 
@@ -103,7 +109,7 @@ namespace Gis.PL.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
 

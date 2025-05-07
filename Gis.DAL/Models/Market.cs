@@ -9,11 +9,12 @@ using Microsoft.EntityFrameworkCore;
 namespace Gis.DAL.Models;
 
 [Table("MARKETS")]
-public partial class Market: BaseEntity
+public partial class Market : BaseEntity
 {
-    
+   
+
     [StringLength(254)]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     [Column("address")]
     [StringLength(254)]

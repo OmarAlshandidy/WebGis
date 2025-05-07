@@ -3,6 +3,7 @@ using AutoMapper;
 using Gis.BLL.UnitOfWork;
 using Gis.DAL.Models;
 using Gis.PL.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NetTopologySuite.Geometries;
@@ -51,6 +52,8 @@ namespace Gis.PL.Controllers
             return PartialView("MosquePartialView/MosqueTablePartialView", mosques);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -81,6 +84,8 @@ namespace Gis.PL.Controllers
             return View(ViewName, mosqueDto);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
            
@@ -106,8 +111,9 @@ namespace Gis.PL.Controllers
             return View(model);
         }
 
-    
-     public async Task<IActionResult> Delete(int? id)
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int? id)
         {
 
             return await Details(id, "Delete");

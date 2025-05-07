@@ -13,15 +13,15 @@ public partial class Mosque: BaseEntity
 {
   
     [StringLength(254)]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     [Column("address")]
     [StringLength(254)]
     public string? Address { get; set; }
 
     [Column("lat", TypeName = "numeric(38, 8)")]
-    public decimal Lat { get; set; }
+    public decimal? Lat { get; set; }
 
     [Column("lon", TypeName = "numeric(38, 8)")]
-    public decimal Lon { get; set; }
+    public decimal? Lon { get; set; }
 }

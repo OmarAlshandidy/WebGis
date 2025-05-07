@@ -2,6 +2,7 @@
 using Gis.BLL.UnitOfWork;
 using Gis.DAL.Models;
 using Gis.PL.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gis.PL.Controllers
@@ -48,6 +49,8 @@ namespace Gis.PL.Controllers
             return PartialView("PharmacyPartialView/PharmacyTablePartialView", pharmacies);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -78,6 +81,8 @@ namespace Gis.PL.Controllers
             return View(ViewName, PharmacyDto);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Edit(int? id)
         {
 
@@ -103,6 +108,7 @@ namespace Gis.PL.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Delete(int? id)
         {

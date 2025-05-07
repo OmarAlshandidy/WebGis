@@ -8,9 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gis.DAL.Models;
 
-[Table("PHARMACIES")]
-public partial class Pharmacy: BaseEntity
+[Table("STUDENT_HOUSING")]
+public partial class StudentHousing: BaseEntity
 {
+   
+
+    [Column("price_ofun")]
+    public int? PriceOfun { get; set; }
 
     [StringLength(254)]
     public string? Name { get; set; }
@@ -24,4 +28,7 @@ public partial class Pharmacy: BaseEntity
 
     [Column("lon", TypeName = "numeric(38, 8)")]
     public decimal? Lon { get; set; }
+
+    [StringLength(254)]
+    public string? Descript { get; set; }
 }

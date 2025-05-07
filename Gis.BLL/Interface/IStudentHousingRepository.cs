@@ -8,9 +8,9 @@ using static Gis.BLL.Interface.IGenericRepository;
 
 namespace Gis.BLL.Interface
 {
-    public interface IMarketRepositorey:IGenericRepository<Market>
+    public interface IStudentHousingRepository:IGenericRepository<StudentHousing>
     {
-        Task<List<Market>> GetByNameAsync(string name);
+        Task<List<StudentHousing>> GetByNameAsync(string name);
 
     }
 }

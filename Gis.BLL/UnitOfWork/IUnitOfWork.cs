@@ -15,7 +15,8 @@ namespace Gis.BLL.UnitOfWork
         public IMosqueRepository  MosqueRepository { get; }
         public IRestaurantRepository RestaurantRepository { get; }
         public  IPharmacyRepository PharmacyRepository { get; }
-        public IMarketRepositorey   MarketRepository { get; }
+        public IMarketRepository   MarketRepository { get; }
+        public IStudentHousingRepository StudentHousingRepository { get; }
 
         Task<int> CompleteAsync();
     }

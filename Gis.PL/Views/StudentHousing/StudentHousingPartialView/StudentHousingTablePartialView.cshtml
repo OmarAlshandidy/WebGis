@@ -1,0 +1,22 @@
+﻿<div id="tableDiv" style="display: none;">
+
+    <tbody id="StudentHousingsTableBody">
+        @foreach (var StudentHousing in Model)
+        {
+            <tr data-StudentHousing-id="@StudentHousing.Objectid">
+                <td class="name-cell">@StudentHousing.Name</td>
+                <td>@StudentHousing.Address</td>
+                <td>@StudentHousing.Descript</td>
+                <td class="price-cell">@StudentHousing.PriceOfun</td>
+                <td>@StudentHousing.Lat</td>
+                <td>@StudentHousing.Lon</td>
+                <td class="distance-cell">Calculating location...</td>
+                <td>
+                    <span class="view-icon" data-StudentHousing-id="@StudentHousing.Objectid" onclick="viewStudentHousingOnMap(@StudentHousing.Objectid)">👁️</span>
+                </td>
+                <partial name="ButtonPartialView" model="@StudentHousing.Objectid.ToString()" />
+            </tr>
+        }
+    </tbody>
+    
+</div>

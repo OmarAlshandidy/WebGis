@@ -7,46 +7,46 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gis.PL.Controllers
 {
-    public class RestaurantController : Controller
+    public class StudentHousingController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public RestaurantController(IUnitOfWork unitOfWork, IMapper mapper)
+        public StudentHousingController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        [Authorize(Roles = "Admin")]
+
         [HttpGet]
         public async Task<ActionResult> Index(string SearchInput)
         {
 
-            IEnumerable<Restaurant> Restaurants;
+            IEnumerable<StudentHousing> StudentHousings;
             if (string.IsNullOrEmpty(SearchInput))
             {
-                Restaurants = await _unitOfWork.RestaurantRepository.GetAllAsync();
+                StudentHousings = await _unitOfWork.StudentHousingRepository.GetAllAsync();
             }
             else
             {
-                Restaurants = await _unitOfWork.RestaurantRepository.GetByNameAsync(SearchInput);
+                StudentHousings = await _unitOfWork.StudentHousingRepository.GetByNameAsync(SearchInput);
             }
-            return View(Restaurants);
+            return View(StudentHousings);
 
         }
         [HttpGet]
         public async Task<ActionResult> Search(string SearchInput)
         {
-            IEnumerable<Restaurant> Restaurants;
+            IEnumerable<StudentHousing> StudentHousings;
             if (string.IsNullOrEmpty(SearchInput))
             {
-                Restaurants = await _unitOfWork.RestaurantRepository.GetAllAsync();
+                StudentHousings = await _unitOfWork.StudentHousingRepository.GetAllAsync();
             }
             else
             {
-                Restaurants = await _unitOfWork.RestaurantRepository.GetByNameAsync(SearchInput);
+                StudentHousings = await _unitOfWork.StudentHousingRepository.GetByNameAsync(SearchInput);
             }
-            return PartialView("RestaurantPartialView/RestaurantTablePartialView", Restaurants);
+            return PartialView("StudentHousingPartialView/StudentHousingTablePartialView", StudentHousings);
         }
         [HttpGet]
         public IActionResult Create()
@@ -54,16 +54,18 @@ namespace Gis.PL.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(RestaurantDto model)
+        [Authorize(Roles = "Admin")]
+
+        public async Task<IActionResult> Create(StudentHousingDto model)
         {
             if (ModelState.IsValid)
             {
-                var Restaurants = _mapper.Map<Restaurant>(model);
-                await _unitOfWork.RestaurantRepository.AddAsync(Restaurants);
+                var StudentHousings = _mapper.Map<StudentHousing>(model);
+                await _unitOfWork.StudentHousingRepository.AddAsync(StudentHousings);
                 var count = await _unitOfWork.CompleteAsync();
                 if (count > 0)
                 {
-                    TempData["Message"] = "Restaurant Is Created !!";
+                    TempData["Message"] = "StudentHousing Is Created !!";
                     return RedirectToAction("Index");
                 }
             }
@@ -73,10 +75,10 @@ namespace Gis.PL.Controllers
         public async Task<IActionResult> Details(int? id, string ViewName = "Details")
         {
             if (id is null) return BadRequest("Invaliad Id");
-            var Restaurant = await _unitOfWork.RestaurantRepository.GetAsync(id.Value);
-            if (Restaurant is null) return NotFound(new { StatusCode = 404, Message = $"Restaurant With Id {id} is not Found " });
-            var RestaurantDto = _mapper.Map<RestaurantDto>(Restaurant);
-            return View(ViewName, RestaurantDto);
+            var StudentHousing = await _unitOfWork.StudentHousingRepository.GetAsync(id.Value);
+            if (StudentHousing is null) return NotFound(new { StatusCode = 404, Message = $"StudentHousing With Id {id} is not Found " });
+            var StudentHousingDto = _mapper.Map<StudentHousingDto>(StudentHousing);
+            return View(ViewName, StudentHousingDto);
         }
         [HttpGet]
         [Authorize(Roles = "Admin")]
@@ -89,14 +91,14 @@ namespace Gis.PL.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([FromRoute] int id, RestaurantDto model)
+        public async Task<IActionResult> Edit([FromRoute] int id, StudentHousingDto model)
         {
             if (ModelState.IsValid)
             {
 
-                var Restaurant = _mapper.Map<Restaurant>(model);
-                Restaurant.Objectid = id;
-                _unitOfWork.RestaurantRepository.Update(Restaurant);
+                var StudentHousing = _mapper.Map<StudentHousing>(model);
+                StudentHousing.Objectid = id;
+                _unitOfWork.StudentHousingRepository.Update(StudentHousing);
                 var count = await _unitOfWork.CompleteAsync();
                 if (count > 0)
                 {
@@ -106,8 +108,8 @@ namespace Gis.PL.Controllers
             return View(model);
         }
 
-        [HttpGet]
         [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Delete(int? id)
         {
 
@@ -117,13 +119,13 @@ namespace Gis.PL.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete([FromRoute] int id, RestaurantDto model)
+        public async Task<IActionResult> Delete([FromRoute] int id, StudentHousingDto model)
         {
             if (ModelState.IsValid)
             {
-                var Restaurant = _mapper.Map<Restaurant>(model);
-                Restaurant.Objectid = id;
-                _unitOfWork.RestaurantRepository.Delete(Restaurant);
+                var StudentHousing = _mapper.Map<StudentHousing>(model);
+                StudentHousing.Objectid = id;
+                _unitOfWork.StudentHousingRepository.Delete(StudentHousing);
                 var count = await _unitOfWork.CompleteAsync();
                 if (count > 0)
                 {

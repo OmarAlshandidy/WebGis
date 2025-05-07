@@ -10,17 +10,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gis.BLL.Repositries
 {
-    public class MarketRepository : GenericRepository<Market>, IMarketRepository
+    public class StudentHousingRepository : GenericRepository<StudentHousing>, IStudentHousingRepository
     {
         private readonly GisDbContext _context;
 
-        public MarketRepository(GisDbContext context) : base(context)
+        public StudentHousingRepository(GisDbContext context) : base(context)
         {
             _context = context;
         }
-        public async Task<List<Market>> GetByNameAsync(string name)
+        public async Task<List<StudentHousing>> GetByNameAsync(string name)
         {
-            return await _context.Markets.Where(M => M.Name.ToLower().Contains(name.ToLower())).ToListAsync();
+            return await _context.StudentHousings.Where(P => P.Name.ToLower().Contains(name.ToLower())).ToListAsync();
         }
     }
 }
