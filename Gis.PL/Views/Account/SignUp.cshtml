@@ -6,20 +6,14 @@
 
 
 <link rel="stylesheet" href="~/css/style.css" />
-
 <div class="login-container">
     <div class="signup-form" id="signupForm">
         <div asp-validation-summary="All"></div>
 
         <h1>Create At Account</h1>
-        <div class="social-icons">
-            <a asp-action="GoogleLogin" class="icon"><i class='bx bxl-google-plus'></i></a>
-            <a asp-action="FacebookLogin" class="icon"><i class='bx bxl-facebook'></i></a>
-            <a href="#" class="icon"><i class='bx bxl-linkedin'></i></a>
-        </div>
+        
 
         <div class="form-message-container">
-            <span>Or use your email for registration</span>
         </div>
 
         <form asp-action="SignUp" method="post">
@@ -60,7 +54,16 @@
             <button type="submit">Sign Up</button>
         </form>
 
+        <span>Or use your email for registration</span>
+
+        <a asp-action="GoogleLogin" class="google-login-label">
+            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo" class="google-logo" />
+            <span>Continue with Google</span>
+        </a>
+
         <p>Already have an account? <a asp-action="SignIn">Sign In</a></p>
+
+
     </div>
 </div>
 @section ValidationSection{

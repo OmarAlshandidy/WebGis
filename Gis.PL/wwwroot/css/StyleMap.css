@@ -1,17 +1,16 @@
 ﻿
 body {
-
     direction: ltr;
     text-align: left;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #e6f0ea;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+
 
 h1 {
     font-size: 24px;
@@ -60,8 +59,8 @@ h1 {
     }
 
 #map {
-    width: 150%; /* Full width */
-    height: calc(90vh - 100px); /* Slightly shorter height */
+    width: 100vw;
+    height: 100vh;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
@@ -194,3 +193,22 @@ h1 {
         transform: scale(1.2);
     }
 
+@media (max-width: 768px) {
+    #map {
+        height: 100vh;
+    }
+
+    .leaflet-control {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 769px) {
+    #map {
+        height: 100vh;
+    }
+
+    .leaflet-control {
+        font-size: 14px;
+    }
+}

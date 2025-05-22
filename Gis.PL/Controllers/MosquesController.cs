@@ -10,6 +10,7 @@ using NetTopologySuite.Geometries;
 
 namespace Gis.PL.Controllers
 {
+    [Authorize]
     public class MosquesController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -52,7 +53,7 @@ namespace Gis.PL.Controllers
             return PartialView("MosquePartialView/MosqueTablePartialView", mosques);
         }
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
 
         public IActionResult Create()
         {
@@ -84,7 +85,7 @@ namespace Gis.PL.Controllers
             return View(ViewName, mosqueDto);
         }
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -112,7 +113,7 @@ namespace Gis.PL.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
 

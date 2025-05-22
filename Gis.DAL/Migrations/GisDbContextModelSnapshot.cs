@@ -121,7 +121,6 @@ namespace Gis.DAL.Migrations
                         .HasColumnName("lon");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(254)
                         .HasColumnType("nvarchar(254)");
 
@@ -145,16 +144,15 @@ namespace Gis.DAL.Migrations
                         .HasColumnType("nvarchar(254)")
                         .HasColumnName("address");
 
-                    b.Property<decimal>("Lat")
+                    b.Property<decimal?>("Lat")
                         .HasColumnType("numeric(38, 8)")
                         .HasColumnName("lat");
 
-                    b.Property<decimal>("Lon")
+                    b.Property<decimal?>("Lon")
                         .HasColumnType("numeric(38, 8)")
                         .HasColumnName("lon");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(254)
                         .HasColumnType("nvarchar(254)");
 
@@ -187,7 +185,6 @@ namespace Gis.DAL.Migrations
                         .HasColumnName("lon");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(254)
                         .HasColumnType("nvarchar(254)");
 
@@ -220,7 +217,6 @@ namespace Gis.DAL.Migrations
                         .HasColumnName("lon");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(254)
                         .HasColumnType("nvarchar(254)");
 
@@ -228,6 +224,46 @@ namespace Gis.DAL.Migrations
                         .HasName("PK__RESTAURA__F4B70D85EC419432");
 
                     b.ToTable("RESTAURANT");
+                });
+
+            modelBuilder.Entity("Gis.DAL.Models.StudentHousing", b =>
+                {
+                    b.Property<int>("Objectid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("OBJECTID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Objectid"));
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(254)
+                        .HasColumnType("nvarchar(254)")
+                        .HasColumnName("address");
+
+                    b.Property<string>("Descript")
+                        .HasMaxLength(254)
+                        .HasColumnType("nvarchar(254)");
+
+                    b.Property<decimal?>("Lat")
+                        .HasColumnType("numeric(38, 8)")
+                        .HasColumnName("lat");
+
+                    b.Property<decimal?>("Lon")
+                        .HasColumnType("numeric(38, 8)")
+                        .HasColumnName("lon");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(254)
+                        .HasColumnType("nvarchar(254)");
+
+                    b.Property<int?>("PriceOfun")
+                        .HasColumnType("int")
+                        .HasColumnName("price_ofun");
+
+                    b.HasKey("Objectid")
+                        .HasName("PK__STUDENT___F4B70D85049E434C");
+
+                    b.ToTable("STUDENT_HOUSING");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

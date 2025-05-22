@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gis.PL.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
 
     public class UserController : Controller
     {

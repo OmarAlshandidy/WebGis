@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gis.PL.Controllers
 {
+    [Authorize]
     public class RestaurantController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -17,7 +18,6 @@ namespace Gis.PL.Controllers
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult> Index(string SearchInput)
         {
@@ -49,6 +49,8 @@ namespace Gis.PL.Controllers
             return PartialView("RestaurantPartialView/RestaurantTablePartialView", Restaurants);
         }
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin,Admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -79,7 +81,7 @@ namespace Gis.PL.Controllers
             return View(ViewName, RestaurantDto);
         }
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -107,7 +109,7 @@ namespace Gis.PL.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
 

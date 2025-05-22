@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Gis.PL.Controllers
 {
+    [Authorize]
     public class StudentHousingController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -49,13 +50,13 @@ namespace Gis.PL.Controllers
             return PartialView("StudentHousingPartialView/StudentHousingTablePartialView", StudentHousings);
         }
         [HttpGet]
+        [Authorize(Roles = "SuperAdmin,Admin")]
+
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-
         public async Task<IActionResult> Create(StudentHousingDto model)
         {
             if (ModelState.IsValid)
@@ -81,7 +82,7 @@ namespace Gis.PL.Controllers
             return View(ViewName, StudentHousingDto);
         }
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -108,7 +109,7 @@ namespace Gis.PL.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
 
         public async Task<IActionResult> Delete(int? id)
         {

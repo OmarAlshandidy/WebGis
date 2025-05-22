@@ -1,0 +1,152 @@
+[
+  {
+    "Name": "مطعم نور",
+    "Address": "73 الإمام مالك، حجر النواتية، قسم ثان الرمل، الإسكندرية 5446470،, Egypt",
+    "Lat": 31.2211763,
+    "Lon": 29.9770666
+  },
+  {
+    "Name": "مطعم أبو ناصر",
+    "Address": "شارع El-Imam Malik, Hagar an Nawateyah, Qesm AR Ramel، Alexandria Governorate 5446470, Egypt",
+    "Lat": 31.221262,
+    "Lon": 29.9769771
+  },
+  {
+    "Name": "مسمط اولاد زين للكوارع",
+    "Address": "6XF7+9MX, بجوار موقف, El Raml 2, Egypt",
+    "Lat": 31.2234824,
+    "Lon": 29.9642294
+  },
+  {
+    "Name": "الشيف البسيط",
+    "Address": "رمل، الاسكندريه, Egypt",
+    "Lat": 31.2153017,
+    "Lon": 29.9689681
+  },
+  {
+    "Name": "مشويات القاضي السوري",
+    "Address": "ش 20، زعربانة والحمام، قسم الرمل،, Alexandria Governorate, Egypt",
+    "Lat": 31.2271502,
+    "Lon": 29.9718374
+  },
+  {
+    "Name": "مطعم اطاليانو-italiano",
+    "Address": "كبري النموس بجوار مدرسه كورونا شارع الزهور, Al Namoss Square, Egypt",
+    "Lat": 31.2222501,
+    "Lon": 29.9730851
+  },
+  {
+    "Name": "مطعم البركة",
+    "Address": "6XCF+C99, Hagar an Nawateyah, Qesm AR Ramel، Alexandria Governorate 5446324, Egypt",
+    "Lat": 31.2209935,
+    "Lon": 29.9735031
+  },
+  {
+    "Name": "بالهنا للمشويات و بعض التواضن",
+    "Address": "12 ممر نصر الاسلام، حجر النواتية، قسم الرمل، الإسكندرية،, Egypt",
+    "Lat": 31.2220144,
+    "Lon": 29.9728967
+  },
+  {
+    "Name": "مشويات الشاعر",
+    "Address": "6X8C+M43، شارع مكه، حي كوبري، الناموس, El Raml 2, Alexandria Governorate, Egypt",
+    "Lat": 31.2165921,
+    "Lon": 29.9702918
+  },
+  {
+    "Name": "مطعم النصر سموحة",
+    "Address": "شارع النصر (عادل ابو زهرة), سموحة, Sidi Gaber, Alexandria Governorate 21648, Egypt",
+    "Lat": 31.2147748,
+    "Lon": 29.9678019
+  },
+  {
+    "Name": "كسكسي وقادوسية الأكرام",
+    "Address": "6X89+PMH, Al Mawasir, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446151, Egypt",
+    "Lat": 31.216819,
+    "Lon": 29.9692443
+  },
+  {
+    "Name": "بيتزا المدينة المنورة فطائر",
+    "Address": "6XCH+RC2، محمد صلاح الدين, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446473, Egypt",
+    "Lat": 31.2220268,
+    "Lon": 29.9785347
+  },
+  {
+    "Name": "مطاعم الحرمين",
+    "Address": "18 35 20 St, Dana Al Gadidah WA Izbat Al Westaneyah, El Raml 2, Alexandria Governorate 5448006, Egypt",
+    "Lat": 31.2282622,
+    "Lon": 29.9786868
+  },
+  {
+    "Name": "عم صابر للمأكولات",
+    "Address": "6X9R+Q75, El-Iman, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446423, Egypt",
+    "Lat": 31.2194611,
+    "Lon": 29.9906459
+  },
+  {
+    "Name": "مطعم السلطان السوري",
+    "Address": "شارع Al Elaziz Badia, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446430, Egypt",
+    "Lat": 31.2185725,
+    "Lon": 29.9871851
+  },
+  {
+    "Name": "مطعم اجيال",
+    "Address": "Hagar an Nawateyah, قسم الرمل،، Alexandria Governorate 5446401, Egypt",
+    "Lat": 31.2183887,
+    "Lon": 29.9932298
+  },
+  {
+    "Name": "مؤسسة الهدى لبيع وشوي وتصنيع اللحوم",
+    "Address": "شارع محطة السوق عمارة البارون أمام موقف مشاريع العوايد، زعربانة والحمام،، قسم ثان الرمل،، الإسكندرية 5447184, Egypt",
+    "Lat": 31.218584,
+    "Lon": 29.9939045
+  },
+  {
+    "Name": "مطعم خواطر الشام",
+    "Address": "اول شارع ٩، جميلة بو حريد, Egypt",
+    "Lat": 31.2262547,
+    "Lon": 29.9936299
+  },
+  {
+    "Name": "مطعم مستر شيف",
+    "Address": "6X6W+Q9M, Street 13, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5445211, Egypt",
+    "Lat": 31.2118924,
+    "Lon": 29.9959127
+  },
+  {
+    "Name": "مطعم تايجر",
+    "Address": "صيدليه الدكتور تامر عبدالحميد، 3 شارع، عزبه الموظفين، 21917, Egypt",
+    "Lat": 31.2068606,
+    "Lon": 29.9994003
+  },
+  {
+    "Name": "علي بتاع السمك",
+    "Address": "6X4W+HH5, Al Mowazafin Mosque, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5444025, Egypt",
+    "Lat": 31.2063892,
+    "Lon": 29.9964779
+  },
+  {
+    "Name": "مطعم البرنس للمشويات",
+    "Address": "2 Street 12, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5445163, Egypt",
+    "Lat": 31.2118951,
+    "Lon": 29.9968233
+  },
+  {
+    "Name": "مطعم الرشيدي",
+    "Address": "6X7X+44X, Al Mohwlat, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5445171, Egypt",
+    "Lat": 31.2129032,
+    "Lon": 29.9977998
+  },
+  {
+    "Name": "السلال",
+    "Address": "20 رقم10 عبد الله بن عباس سابقا، خورشيد القبلية، قسم ثان الرمل،, Alexandria Governorate, Egypt",
+    "Lat": 31.2119311,
+    "Lon": 29.9981593
+  },
+  {
+    "Name": "مطعم عم حسن",
+    "Address": "6X6W+VWW، شارع 10, Khorshid Al Qebleyah، حي الرمل, Alexandria Governorate 5445165, Egypt",
+    "Lat": 31.212236,
+    "Lon": 29.9973302
+  }
+]

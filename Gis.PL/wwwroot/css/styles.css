@@ -11700,3 +11700,15 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+@media (max-width: 768px) {
+    body {
+        background-color: lightblue;
+    }
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.container {
+    width: 80%;
+}

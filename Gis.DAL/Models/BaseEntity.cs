@@ -12,7 +12,7 @@ namespace Gis.DAL.Models
     {
         [Key]
         [Column("OBJECTID")]
-        public int Objectid { get; set; }
+        public int Objectid  { get; set; }
 
     }
 }

@@ -1,0 +1,296 @@
+[
+  {
+    "Name": "مسجد اولياء الرحمن",
+    "Address": "6XCG+RJM, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446471, Egypt",
+    "Lat": 31.2220605,
+    "Lon": 29.9765682
+  },
+  {
+    "Name": "مسجد نور الإسلام",
+    "Address": "حجر النواتية، قسم الرمل،, Alexandria Governorate, Egypt",
+    "Lat": 31.2219306,
+    "Lon": 29.9811672
+  },
+  {
+    "Name": "مسجد الزهراء",
+    "Address": "6XCH+WV3, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446481, Egypt",
+    "Lat": 31.2222624,
+    "Lon": 29.9796717
+  },
+  {
+    "Name": "مسجد الإيمان",
+    "Address": "6XCH+J9R, شارع الايمان (شارع همام, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446473, Egypt",
+    "Lat": 31.2216115,
+    "Lon": 29.9783887
+  },
+  {
+    "Name": "مسجد الإمام مالك",
+    "Address": "حجر النواتية, Hagar an Nawateyah، Qesm AR Ramel, Alexandria Governorate 5446474, Egypt",
+    "Lat": 31.2217134,
+    "Lon": 29.9775865
+  },
+  {
+    "Name": "مسجد أنس بن مالك",
+    "Address": "6XCH+GWX, Abd Allah Ibn El-Zobeir, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446461, Egypt",
+    "Lat": 31.2213428,
+    "Lon": 29.9798798
+  },
+  {
+    "Name": "مسجد على بن ابى طالب",
+    "Address": "6XCH+WPH, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446482, Egypt",
+    "Lat": 31.2222872,
+    "Lon": 29.9793935
+  },
+  {
+    "Name": "مسجد المدينة",
+    "Address": "6XFJ+629, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446487, Egypt",
+    "Lat": 31.2230479,
+    "Lon": 29.9801244
+  },
+  {
+    "Name": "مسجد الرحمن",
+    "Address": "6XCF+X84, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446333, Egypt",
+    "Lat": 31.2223961,
+    "Lon": 29.97333
+  },
+  {
+    "Name": "مسجد الإسراء",
+    "Address": "6XCC+GRM، عمر ابن الخطاب، متفرع من, Al Namoss Square, Alexandria Governorate, Egypt",
+    "Lat": 31.2213394,
+    "Lon": 29.9720493
+  },
+  {
+    "Name": "مسجد خالد ابن الوليد",
+    "Address": "6XCF+5F4, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446323, Egypt",
+    "Lat": 31.2203304,
+    "Lon": 29.9737381
+  },
+  {
+    "Name": "مسجد على ابن ابي طالب",
+    "Address": "شارع الامل متفرع من شارع الجهاد, Al Namoss Square, Egypt",
+    "Lat": 31.2208053,
+    "Lon": 29.9738238
+  },
+  {
+    "Name": "مسجد التقوى",
+    "Address": "6XCG+V2W, Haroun Al Rashid_al Kadeseya, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446333, Egypt",
+    "Lat": 31.2222576,
+    "Lon": 29.975068
+  },
+  {
+    "Name": "مسجد الصفاء المحمدي",
+    "Address": "6XCC+4PH, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446306, Egypt",
+    "Lat": 31.2203165,
+    "Lon": 29.9718443
+  },
+  {
+    "Name": "مسجد عباد الرحمن",
+    "Address": "Elshohada Square Rd, Zaarbana WA Al Hamam, El Raml 2, Alexandria Governorate 5447104, Egypt",
+    "Lat": 31.2232476,
+    "Lon": 29.9721958
+  },
+  {
+    "Name": "مسجد المنزلاوى",
+    "Address": "شارع المواسير العلم، متفرع من, Al Namoss Square, Egypt",
+    "Lat": 31.2193215,
+    "Lon": 29.9727048
+  },
+  {
+    "Name": "مسجد السيدة زينب",
+    "Address": "شارع السيدة زينب متفرع من شارع الامام على،, Al Namoss Square, Egypt",
+    "Lat": 31.220007,
+    "Lon": 29.9713081
+  },
+  {
+    "Name": "مسجد العزيز الرحمن",
+    "Address": "6X9C+P2V, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446310, Egypt",
+    "Lat": 31.2193631,
+    "Lon": 29.9700215
+  },
+  {
+    "Name": "مسجد الفتح",
+    "Address": "6X98+FMM, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446243, Egypt",
+    "Lat": 31.2187427,
+    "Lon": 29.9666767
+  },
+  {
+    "Name": "مسجد التقوى",
+    "Address": "6X89+M74، شارع مسجد التقوي، متفرع من شارع, Adel Abou Zahra, Alexandria Governorate, Egypt",
+    "Lat": 31.2166462,
+    "Lon": 29.9682206
+  },
+  {
+    "Name": "مسجد بدر",
+    "Address": "العلم، شارع Ghazwet Badr, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446213, Egypt",
+    "Lat": 31.2170846,
+    "Lon": 29.9681631
+  },
+  {
+    "Name": "مسجد أبو بكر الصديق",
+    "Address": "6X79+W34, Izbat an Nuzhah, Qesm Sidi Gaber, Alexandria Governorate 5431146, Egypt",
+    "Lat": 31.2147216,
+    "Lon": 29.9676849
+  },
+  {
+    "Name": "مسجد السلام",
+    "Address": "6X9C+5H9, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446130, Egypt",
+    "Lat": 31.2179124,
+    "Lon": 29.9714965
+  },
+  {
+    "Name": "مسجد عمر بن عبد العزيز",
+    "Address": "6X89+WR5, El-Imam El-Hussein, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446301, Egypt",
+    "Lat": 31.2172678,
+    "Lon": 29.9696229
+  },
+  {
+    "Name": "مسجد شركة النحاس المصرية",
+    "Address": "6X97+RC4, Zaarbana WA Al Hamam, El Raml 2, Alexandria Governorate 5447001, Egypt",
+    "Lat": 31.2194535,
+    "Lon": 29.9636425
+  },
+  {
+    "Name": "مسجد البكاتوشي",
+    "Address": "Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446260, Egypt",
+    "Lat": 31.2192344,
+    "Lon": 29.9647617
+  },
+  {
+    "Name": "مسجد على بن أبى طالب",
+    "Address": "٢شارع على بن أبى طالب متفرع من, El-Alam El-Masry, Egypt",
+    "Lat": 31.2187796,
+    "Lon": 29.9690749
+  },
+  {
+    "Name": "مسجد نصر الإسلام",
+    "Address": "6X99+95J امام، حجر النواتيه البر القبلي، كوبري, Alexandria Governorate, Egypt",
+    "Lat": 31.2185016,
+    "Lon": 29.9679299
+  },
+  {
+    "Name": "مسجد الاسراء",
+    "Address": "6XC8+FP7, Zaarbana WA Al Hamam, Qesm AR Ramel, Alexandria Governorate 5446262, Egypt",
+    "Lat": 31.2211666,
+    "Lon": 29.9667906
+  },
+  {
+    "Name": "مسجد الوفاء",
+    "Address": "امام، حجر النواتيه البر القبلي، كوبري, Alexandria Governorate, Egypt",
+    "Lat": 31.2187309,
+    "Lon": 29.9692194
+  },
+  {
+    "Name": "مسجد الإحسان",
+    "Address": "6X88+XGH, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446234, Egypt",
+    "Lat": 31.217429,
+    "Lon": 29.9663523
+  },
+  {
+    "Name": "مسجد قباء",
+    "Address": "6X88+VRQ, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446212, Egypt",
+    "Lat": 31.2172239,
+    "Lon": 29.967097
+  },
+  {
+    "Name": "مسجد الاسلام",
+    "Address": "6X9Q+FQ5, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446424, Egypt",
+    "Lat": 31.2186148,
+    "Lon": 29.9894799
+  },
+  {
+    "Name": "مسجد محطة السيوف",
+    "Address": "6XCR+96G, Dana Al Gadidah WA Izbat Al Westaneyah, El Raml 2, Alexandria Governorate 5448410, Egypt",
+    "Lat": 31.2209952,
+    "Lon": 29.9906344
+  },
+  {
+    "Name": "مسجد فجر الإسلام",
+    "Address": "6X9R+F94، شارع فجر الإسلام، حي القلعة, Fagr El-Islam, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446422, Egypt",
+    "Lat": 31.2186325,
+    "Lon": 29.990945
+  },
+  {
+    "Name": "مسجد الفاروق عمر",
+    "Address": "شارع النصر ٢ حي القلعه, Egypt",
+    "Lat": 31.2175859,
+    "Lon": 29.9911475
+  },
+  {
+    "Name": "مسجد العزيز",
+    "Address": "6X9Q+973, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446430, Egypt",
+    "Lat": 31.2183869,
+    "Lon": 29.9881613
+  },
+  {
+    "Name": "مسجد السيدة فاطمة الزهراء",
+    "Address": "6XCQ+48R, Hagar an Nawateyah, Qesm AR Ramel, Alexandria Governorate 5446432, Egypt",
+    "Lat": 31.2203927,
+    "Lon": 29.9882614
+  },
+  {
+    "Name": "Quba Mosque",
+    "Address": "6X6W+GF7, Street 15, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5445161, Egypt",
+    "Lat": 31.2111933,
+    "Lon": 29.9960996
+  },
+  {
+    "Name": "مسجد الإمام البخارى",
+    "Address": "Street 13, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5445211, Egypt",
+    "Lat": 31.2120245,
+    "Lon": 29.9952396
+  },
+  {
+    "Name": "El Asraa",
+    "Address": "6X6X+6JQ, Khorshid Al Qebleyah, Qesm AR Ramel, Alexandria Governorate 5445133, Egypt",
+    "Lat": 31.2106586,
+    "Lon": 29.9991509
+  },
+  {
+    "Name": "مسجد نادي الصفوة",
+    "Address": "6X6V+F96, Hagar an Nawateyah, El Raml 2, Alexandria Governorate 5446010, Egypt",
+    "Lat": 31.2111641,
+    "Lon": 29.9933785
+  },
+  {
+    "Name": "مسجد الشيخ صالح مصلى النساء",
+    "Address": "6X7X+535, Khorshid Al Qebleyah, Qesm AR Ramel, Alexandria Governorate 5445171, Egypt",
+    "Lat": 31.2128949,
+    "Lon": 29.997722
+  },
+  {
+    "Name": "مسجد شروق الاسلام",
+    "Address": "Street 10, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5445164, Egypt",
+    "Lat": 31.2117769,
+    "Lon": 29.9983756
+  },
+  {
+    "Name": "مسجد الموظفين",
+    "Address": "ش Al Mowazafin Mosque, عزبة الموظفين، El Raml 2, Alexandria Governorate 5444041, Egypt",
+    "Lat": 31.207403,
+    "Lon": 29.9998214
+  },
+  {
+    "Name": "مسجد المدينة المنورة",
+    "Address": "6X4X+R3J, Alexandria Agriculture Rd, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5444033, Egypt",
+    "Lat": 31.207097,
+    "Lon": 29.9976478
+  },
+  {
+    "Name": "مسجد الرحمه",
+    "Address": "6X5X+599، عزبة الموظفين،, Ezbet Al Omal, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5444037, Egypt",
+    "Lat": 31.2079473,
+    "Lon": 29.9984956
+  },
+  {
+    "Name": "مسجد الرحمن",
+    "Address": "6X6X+QHM, Gamila Abou Hread, Khorshid Al Qebleyah, El Raml 2, Alexandria Governorate 5445166, Egypt",
+    "Lat": 31.2119766,
+    "Lon": 29.9989243
+  },
+  {
+    "Name": "Omar",
+    "Address": "Elmahmodai-albehrai",
+    "Lat": 31.11279,
+    "Lon": 29.53322
+  }
+]

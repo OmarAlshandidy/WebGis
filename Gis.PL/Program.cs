@@ -1,5 +1,6 @@
 using Gis.BLL.UnitOfWork;
 using Gis.DAL.Data;
+using Gis.DAL.DbInitializer;
 using Gis.DAL.Models;
 using Gis.PL.Mapping;
 using Microsoft.AspNetCore.Identity;
@@ -11,7 +12,7 @@ namespace Gis.PL
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,7 @@ namespace Gis.PL
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            builder.Services.AddScoped<IDbInitializer, DbInitializer>();
             builder.Services.AddAutoMapper(M => M.AddProfile(new MapProfile()));
 
 
@@ -29,14 +30,30 @@ namespace Gis.PL
             });
 
             builder.Services.AddIdentity<AppUser, IdentityRole>()
-     .AddEntityFrameworkStores<GisDbContext>()
-     .AddDefaultTokenProviders();
+                                 .AddEntityFrameworkStores<GisDbContext>()
+                                 .AddDefaultTokenProviders();
             builder.Services.ConfigureApplicationCookie(config =>
             {
                 config.LoginPath = "/Account/SignIn";
+                config.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+            });
+            builder.Services.AddAuthentication(o =>
+            {
+                o.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+                o.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+                
+            }).AddGoogle(o =>
+            {
+                o.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+                o.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
             });
             var app = builder.Build();
-
+            using var scope = app.Services.CreateScope();
+            {
+                var initializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+                await initializer.InitializeAsync();
+            }
+                
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {

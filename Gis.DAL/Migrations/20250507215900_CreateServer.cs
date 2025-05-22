@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Gis.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class AddIdentityTables : Migration
+    public partial class CreateServer : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,6 +51,88 @@ namespace Gis.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MARKETS",
+                columns: table => new
+                {
+                    OBJECTID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    lat = table.Column<decimal>(type: "numeric(38,8)", nullable: true),
+                    lon = table.Column<decimal>(type: "numeric(38,8)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__MARKETS__F4B70D851C07A19D", x => x.OBJECTID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MOSQUE",
+                columns: table => new
+                {
+                    OBJECTID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    lat = table.Column<decimal>(type: "numeric(38,8)", nullable: true),
+                    lon = table.Column<decimal>(type: "numeric(38,8)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__MOSQUE__F4B70D8564EDCE8D", x => x.OBJECTID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PHARMACIES",
+                columns: table => new
+                {
+                    OBJECTID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    lat = table.Column<decimal>(type: "numeric(38,8)", nullable: true),
+                    lon = table.Column<decimal>(type: "numeric(38,8)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__PHARMACI__F4B70D85F6C427D8", x => x.OBJECTID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RESTAURANT",
+                columns: table => new
+                {
+                    OBJECTID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    lat = table.Column<decimal>(type: "numeric(38,8)", nullable: true),
+                    lon = table.Column<decimal>(type: "numeric(38,8)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__RESTAURA__F4B70D85EC419432", x => x.OBJECTID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "STUDENT_HOUSING",
+                columns: table => new
+                {
+                    OBJECTID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    price_ofun = table.Column<int>(type: "int", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    address = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true),
+                    lat = table.Column<decimal>(type: "numeric(38,8)", nullable: true),
+                    lon = table.Column<decimal>(type: "numeric(38,8)", nullable: true),
+                    Descript = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__STUDENT___F4B70D85049E434C", x => x.OBJECTID);
                 });
 
             migrationBuilder.CreateTable(
@@ -216,6 +298,21 @@ namespace Gis.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "MARKETS");
+
+            migrationBuilder.DropTable(
+                name: "MOSQUE");
+
+            migrationBuilder.DropTable(
+                name: "PHARMACIES");
+
+            migrationBuilder.DropTable(
+                name: "RESTAURANT");
+
+            migrationBuilder.DropTable(
+                name: "STUDENT_HOUSING");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

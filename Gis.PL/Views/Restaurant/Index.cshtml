@@ -248,7 +248,7 @@
                     show: false,
                     showAlternatives: false
                 }).addTo(map);
-
+                  
                 showMessage("Routing to: " + (nearestRestaurant.Restaurant.Name || "Restaurant"));
             } catch (error) {
                 showMessage("Error creating route: " + error.message, true);
@@ -358,6 +358,7 @@
                         show: false,
                         showAlternatives: false
                     }).addTo(map);
+
 
                     showMessage("Selected Restaurant: " + (Restaurant.Name || "Restaurant"));
                 });

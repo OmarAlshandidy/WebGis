@@ -13,7 +13,7 @@ namespace Gis.DAL.Data.Configurations
     public partial class PharmacyConfiguration : IEntityTypeConfiguration<Pharmacy>
     {
         public void Configure(EntityTypeBuilder<Pharmacy> entity)
-        {
+        {   
             entity.HasKey(e => e.Objectid).HasName("PK__PHARMACI__F4B70D85F6C427D8");
 
             OnConfigurePartial(entity);
